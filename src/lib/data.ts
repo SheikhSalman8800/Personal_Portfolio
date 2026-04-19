@@ -67,7 +67,7 @@ export const experiences = [
     company: "Tickify",
     role: "Web Developer",
     period: "Jan 2023 - Sep 2024",
-    description: "Full-time Web Developer at Bangladesh's largest ticketing platform, responsible for core platform development and scaling.",
+    description: "Collaborated in a focused two-man team alongside a senior developer to build and maintain Bangladesh's largest ticketing platform, contributing to core architecture and scaling.",
   },
   {
     company: "The Analytics Team",
