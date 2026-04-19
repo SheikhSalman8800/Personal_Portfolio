@@ -23,8 +23,9 @@ export default function About() {
               <p>
                 My journey began right after graduation as a web developer. I joined{" "}
                 <a href="https://www.tickify.live" target="_blank" className="text-primary hover:underline font-bold transition-all">
+        
                   Tickify
-                </a>, the largest ticketing company in Bangladesh, where I worked within a focused two-man team alongside a senior developer, building and managing their extensive platform.
+                </a>, the largest ticketing company in Bangladesh, where I worked within a high-impact development team, building and managing their extensive platform.
               </p>
               <p>
                 Later, I transitioned to remote work with The Analytics Team as a Web Developer, further honing my skills in full-stack applications and data-driven dashboards.
