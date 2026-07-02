@@ -19,35 +19,15 @@ export default function Experience() {
       <div className="container mx-auto px-6">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4"
-            >
-              <GitBranch size={12} className="text-indigo-400" />
-              <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-indigo-400">Branching Logic</span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-black uppercase tracking-tight"
-            >
-              Branching <span className="gradient-text tracking-tighter">Evolution</span>
-            </motion.h2>
-          </div>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-400 text-lg max-w-md font-medium"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-500"
           >
-            An interactive representation of my engineering path, charting the transition from standard web developer to AI specialist.
-          </motion.p>
+            // branching evolution
+          </motion.div>
         </div>
 
         {/* 1. HORIZONTAL GIT FLOW VISUALIZER (Desktop only) */}

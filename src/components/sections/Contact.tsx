@@ -15,37 +15,35 @@ export default function Contact() {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      alert("System Ping Successful! I will get back to you shortly.");
       setFormState({ name: "", email: "", message: "" });
+      alert("System Dispatch: Message received successfully.");
     }, 1500);
   };
 
   return (
-    <section id="contact" className="py-28 relative overflow-hidden bg-dot-pattern border-t border-slate-900">
+    <section id="contact" className="py-24 relative overflow-hidden bg-grid-pattern border-t border-zinc-900">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-amber-500/5 rounded-full blur-[160px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-primary/[0.01] rounded-full blur-[160px] -z-10" />
 
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -25 }}
+            initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <span className="text-xs font-mono font-bold text-amber-500/80 uppercase tracking-widest mb-3 block">
-              PORT_INITIALIZE
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-8">
-              Establish <span className="gradient-text tracking-tighter">Connection</span>
-            </h2>
-            <p className="text-slate-400 text-lg mb-12 max-w-md leading-relaxed font-medium">
+            <div className="mb-8">
+              <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">// establish connection</span>
+            </div>
+            
+            <p className="text-zinc-400 text-sm mb-10 leading-relaxed font-mono">
               Want to scale your business with custom voice AI, automate complex backend steps, or optimize your web systems? Ping my console.
             </p>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-5 mb-10">
               <ContactInfoItem 
                 icon={Mail} 
                 title="Node Email" 
@@ -61,58 +59,75 @@ export default function Contact() {
                 icon={Phone} 
                 title="Direct Line" 
                 value={personalInfo.phone} 
-                href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+                href={`tel:${personalInfo.phone}`}
+              />
+              <ContactInfoItem 
+                icon={MessageSquare} 
+                title="WhatsApp" 
+                value={personalInfo.whatsapp} 
+                href={personalInfo.whatsappLink}
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <SocialLink icon={Github} href={personalInfo.github} label="GitHub" />
               <SocialLink icon={Linkedin} href={personalInfo.linkedin} label="LinkedIn" />
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form Terminal Box */}
           <motion.div
-            initial={{ opacity: 0, x: 25 }}
+            initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-8 md:p-12 rounded-3xl bg-slate-950 border border-slate-900 shadow-2xl relative overflow-hidden"
+            className="w-full bg-zinc-950 border border-zinc-900 rounded-lg overflow-hidden shadow-2xl font-mono text-[11px] sm:text-xs text-zinc-400"
           >
-            {/* Ambient indicator */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
-            
-            <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Identity / Name</label>
+            {/* Tab Header */}
+            <div className="flex items-center justify-between px-4 py-2 bg-[#0c0c0e] border-b border-zinc-900 select-none">
+              <div className="flex items-center space-x-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-800" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-800" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-800" />
+              </div>
+              <div className="flex items-center space-x-2 px-3 py-1 bg-zinc-950 border border-zinc-900 border-b-transparent rounded-t text-xs font-semibold text-zinc-300">
+                <span className="text-primary font-bold text-[10px]">&gt;_</span>
+                <span>contact.sh</span>
+              </div>
+              <div className="w-10" />
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-[9px] font-mono font-bold uppercase tracking-widest text-zinc-500 ml-1">Identity / Name</label>
                   <input
                     required
                     type="text"
                     placeholder="e.g. John Doe"
-                    className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white"
+                    className="w-full px-3 py-2 rounded bg-zinc-900/60 border border-zinc-900 focus:border-primary/50 focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-zinc-700 text-xs font-mono text-zinc-300"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Return Port / Email</label>
+                <div className="space-y-1.5">
+                  <label className="text-[9px] font-mono font-bold uppercase tracking-widest text-zinc-500 ml-1">Return Port / Email</label>
                   <input
                     required
                     type="email"
                     placeholder="e.g. name@domain.com"
-                    className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white"
+                    className="w-full px-3 py-2 rounded bg-zinc-900/60 border border-zinc-900 focus:border-primary/50 focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-zinc-700 text-xs font-mono text-zinc-300"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   />
                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Payload / Message</label>
+              <div className="space-y-1.5">
+                <label className="text-[9px] font-mono font-bold uppercase tracking-widest text-zinc-500 ml-1">Payload / Message</label>
                 <textarea
                   required
-                  rows={5}
+                  rows={4}
                   placeholder="Detail your system specifications or project scope..."
-                  className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white resize-none"
+                  className="w-full px-3 py-2 rounded bg-zinc-900/60 border border-zinc-900 focus:border-primary/50 focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-zinc-700 text-xs font-mono text-zinc-300 resize-none leading-relaxed"
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 />
@@ -120,14 +135,14 @@ export default function Contact() {
               <motion.button
                 whileTap={{ scale: 0.98 }}
                 disabled={isSubmitting}
-                className="w-full cyber-button flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl shadow-amber-500/10 text-black uppercase tracking-wider text-xs font-bold py-4"
+                className="w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group text-black bg-primary uppercase tracking-wider text-xs font-bold py-3 rounded hover:bg-amber-400 transition-colors"
               >
                 {isSubmitting ? (
                   <div className="h-4 w-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                 ) : (
                   <>
-                    <span>Broadcast Message</span>
-                    <Send size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <span>[Broadcast Message]</span>
+                    <Send size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-black" />
                   </>
                 )}
               </motion.button>
@@ -141,13 +156,13 @@ export default function Contact() {
 
 function ContactInfoItem({ icon: Icon, title, value, href }: { icon: any; title: string; value: string; href?: string }) {
   const content = (
-    <div className="flex items-start gap-5 group">
-      <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-900 text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-md">
-        <Icon size={20} />
+    <div className="flex items-start gap-4 group">
+      <div className="p-2 rounded bg-zinc-900 border border-zinc-800 text-primary group-hover:bg-primary group-hover:text-black transition-all duration-300">
+        <Icon size={14} />
       </div>
       <div>
-        <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-1">{title}</h4>
-        <p className="text-lg font-bold text-white group-hover:text-amber-500 transition-colors">{value}</p>
+        <h4 className="text-[9px] font-mono font-bold uppercase tracking-widest text-zinc-500 mb-0.5">{title}</h4>
+        <p className="text-sm font-mono font-bold text-zinc-300 group-hover:text-primary transition-colors truncate max-w-[280px] sm:max-w-none">{value}</p>
       </div>
     </div>
   );
@@ -167,12 +182,12 @@ function SocialLink({ icon: Icon, href, label }: { icon: any; href: string; labe
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ y: -3 }}
-      className="p-3 px-5 rounded-2xl bg-slate-950 text-slate-300 hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2 border border-slate-900"
+      whileHover={{ y: -2 }}
+      className="p-2 px-4 rounded border border-zinc-900 bg-zinc-950 text-zinc-400 hover:text-white hover:border-zinc-800 transition-colors flex items-center gap-2 font-mono text-xs uppercase"
       aria-label={label}
     >
-      <Icon size={16} />
-      <span className="font-bold text-xs uppercase tracking-wider pr-1">{label}</span>
+      <Icon size={13} />
+      <span className="font-bold text-[10px] tracking-wider">{label}</span>
     </motion.a>
   );
 }

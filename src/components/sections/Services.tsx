@@ -16,33 +16,15 @@ export default function Services() {
 
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-24">
+        <div className="mb-12">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 mb-4"
+            className="font-mono text-xs uppercase tracking-widest text-zinc-500"
           >
-            <Activity size={12} className="text-secondary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">System Capabilities</span>
+            {"// capabilities pipeline"}
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black uppercase tracking-tight"
-          >
-            My <span className="gradient-text tracking-tighter">Capabilities Pipeline</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-400 text-lg max-w-2xl mx-auto mt-4 font-medium"
-          >
-            A modular approach to building automated logic networks, low-latency AI integrations, and full-stack systems.
-          </motion.p>
         </div>
 
         {/* Pipeline Layout */}

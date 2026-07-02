@@ -1,7 +1,8 @@
 import { 
   Code2, Cpu, Database, Bot, Zap, Mail, 
   Workflow, PhoneCall, Github, Linkedin, Terminal, 
-  Layers, Volume2, ShieldCheck, Play
+  Layers, Volume2, ShieldCheck, Play,
+  Globe, Palette, Users, Briefcase, ShoppingBag, CreditCard, Search, Server, Layout
 } from "lucide-react";
 
 export const personalInfo = {
@@ -11,11 +12,13 @@ export const personalInfo = {
   title: "Full-Stack Developer & AI Automation Specialist",
   location: "Dhaka, Bangladesh",
   tagline: "I build responsive web systems and intelligent automation pipelines that eliminate operational friction.",
-  email: "salman@sheikhsalman.dev", 
+  email: "salman.advertor@gmail.com",
   formspreeId: "xqewlped",
-  github: "https://github.com/sheikhsalman",
-  linkedin: "https://linkedin.com/in/sheikhsalman",
-  phone: "+880 1700-000000", // Placeholder but formatted
+  github: "https://github.com/SheikhSalman8800",
+  linkedin: "https://www.linkedin.com/in/sheikh-salman-4392a1128?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+  phone: "+8801724026502",
+  whatsapp: "sheikh.salman_ | +8801724026502",
+  whatsappLink: "https://wa.me/8801724026502",
 };
 
 export const stats = [
@@ -26,31 +29,46 @@ export const stats = [
 ];
 
 export const skills = {
-  ingress: [
-    { name: "Vapi Voice AI", icon: Volume2, color: "#10B981" },
-    { name: "Retell AI", icon: Volume2, color: "#06B6D4" },
-    { name: "Twilio API", icon: PhoneCall, color: "#F22F46" },
-    { name: "Webhooks", icon: Zap, color: "#F59E0B" },
+  frontend: [
+    { name: "React", icon: Code2, color: "#61DAFB" },
+    { name: "Next.js", icon: Code2, color: "#FFFFFF" },
+    { name: "JavaScript", icon: Terminal, color: "#F7DF1E" },
+    { name: "HTML5", icon: Code2, color: "#E34F26" },
+    { name: "CSS3", icon: Palette, color: "#1572B6" },
   ],
-  orchestration: [
+  backend: [
+    { name: "NestJS", icon: Cpu, color: "#E0234E" },
+    { name: "Python", icon: Terminal, color: "#3776AB" },
+    { name: "Django", icon: Server, color: "#44B78B" },
+    { name: "Supabase", icon: Database, color: "#3ECF8E" },
+  ],
+  automation: [
     { name: "n8n", icon: Workflow, color: "#FF6D5A" },
-    { name: "Make.com", icon: Zap, color: "#EA2861" },
-    { name: "Custom Python Queues", icon: Terminal, color: "#3776AB" },
+    { name: "Make", icon: Zap, color: "#EA2861" },
     { name: "Zapier", icon: Zap, color: "#FF4A00" },
   ],
-  cognition: [
-    { name: "Claude (Anthropic)", icon: Bot, color: "#D97706" },
-    { name: "OpenAI API", icon: Bot, color: "#10B981" },
-    { name: "Vector Databases", icon: Database, color: "#2563EB" },
-    { name: "LangChain", icon: Layers, color: "#38BDF8" },
+  aiVoice: [
+    { name: "OpenAI", icon: Bot, color: "#10B981" },
+    { name: "ElevenLabs", icon: Volume2, color: "#F59E0B" },
+    { name: "Vapi", icon: Volume2, color: "#10B981" },
+    { name: "Retell", icon: Volume2, color: "#06B6D4" },
+    { name: "HeyGen", icon: Play, color: "#FF3366" },
+    { name: "Synthesia", icon: Play, color: "#4F46E5" },
   ],
-  core: [
-    { name: "Next.js", icon: Code2, color: "#000000" },
-    { name: "React.js", icon: Code2, color: "#61DAFB" },
-    { name: "Node.js", icon: Cpu, color: "#339933" },
-    { name: "PostgreSQL / Supabase", icon: Database, color: "#4169E1" },
-    { name: "TypeScript", icon: Code2, color: "#3178C6" },
-    { name: "Docker", icon: Layers, color: "#2496ED" },
+  crm: [
+    { name: "GoHighLevel", icon: Users, color: "#2A85FF" },
+    { name: "Zoho", icon: Briefcase, color: "#F4B400" },
+    { name: "HubSpot", icon: Users, color: "#FF7A59" },
+  ],
+  cmsNoCode: [
+    { name: "WordPress", icon: Globe, color: "#21759B" },
+    { name: "Webflow", icon: Layout, color: "#4353FF" },
+    { name: "Shopify", icon: ShoppingBag, color: "#96BF48" },
+  ],
+  other: [
+    { name: "Apollo", icon: Search, color: "#118DFF" },
+    { name: "Stripe", icon: CreditCard, color: "#635BFF" },
+    { name: "Twilio", icon: PhoneCall, color: "#F22F46" },
   ]
 };
 

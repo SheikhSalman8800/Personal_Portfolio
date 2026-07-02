@@ -15,10 +15,9 @@ export default function About() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="lg:w-1/2"
           >
-            <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tight leading-[1.1]">
-              From Web Dev to <br />
-              <span className="gradient-text tracking-tighter italic">AI Specialist</span>
-            </h2>
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500 mb-8">
+              // from web dev to ai specialist
+            </div>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-medium">
               <p>
                 My journey began right after graduation as a web developer. I joined{" "}
