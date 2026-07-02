@@ -62,8 +62,8 @@ export default function About() {
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden border-8 border-foreground/5 group shadow-2xl shadow-primary/10">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 group-hover:opacity-0 transition-opacity duration-700 mix-blend-overlay" />
               <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop"
-                alt="Sheikh Salman working"
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop"
+                alt="Sheikh Salman Workstation"
                 className="w-full aspect-square object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
               />
             </div>

@@ -106,15 +106,17 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="flex items-center gap-3">
-                    <a
-                      href={tickifyProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-all"
-                      aria-label="View Github"
-                    >
-                      <Github size={16} />
-                    </a>
+                    {tickifyProject.github && (
+                      <a
+                        href={tickifyProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition-all"
+                        aria-label="View Github"
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
                     <a
                       href={tickifyProject.link}
                       target="_blank"

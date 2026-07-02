@@ -56,12 +56,12 @@ export const skills = {
 
 export const experiences = [
   {
-    company: "Freelance Operator",
+    company: "Devizly (Co-Founder) & Freelance",
     role: "Full-Stack Dev & AI Automation Engineer",
     period: "Late 2025 - Present",
-    description: "Architecting end-to-end web applications and complex automation systems for clients worldwide. Integrating real-time Voice AI, auto-healing LLM scraping pipelines, and central CRM systems to drive structural efficiency.",
+    description: "Co-founding Devizly agency and freelancing full-time as an AI & Automation Architect. Designing custom voice AI streams, dual-agent prompt chains, and self-healing n8n workflow orchestrations for global clients.",
     branch: "freelance",
-    milestones: ["Implemented low-latency custom Voice AI streams", "Built auto-retrying n8n pipelines", "Optimized enterprise client HubSpot syncs"]
+    milestones: ["Co-founded Devizly automation agency", "Implemented low-latency custom Voice AI streams", "Built auto-retrying n8n pipelines", "Optimized enterprise client HubSpot syncs"]
   },
   {
     company: "The Analytics Team",
@@ -184,7 +184,7 @@ export const projects = [
     impact: "Successfully handled multiple 10,000+ concurrent traffic spikes. Checkout latency decreased by 60% and transaction failure rates dropped to 0%, resulting in over $50k in ticket sales processed smoothly in minutes.",
     tags: ["Django", "Python", "Redis", "PostgreSQL"],
     category: "Full-Stack Scale",
-    github: "https://github.com/sheikhsalman/tickify-scale",
+    github: "",
     link: "https://tickify.live",
     image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1000&auto=format&fit=crop"
   },
