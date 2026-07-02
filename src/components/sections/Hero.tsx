@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
 import { ArrowRight, MapPin, Sparkles, Terminal, Activity, Bot, ExternalLink } from "lucide-react";
-import Hero3DNodeGraph from "./Hero3DNodeGraph";
+import TerminalWindow from "./TerminalWindow";
 
 export default function Hero() {
   const containerVariants = {
@@ -116,22 +116,17 @@ export default function Hero() {
                 <MapPin size={12} className="text-amber-500" />
                 <span className="font-bold text-slate-400">{personalInfo.location}</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Activity size={12} className="text-emerald-500" />
-                <span className="font-bold text-slate-400">Node Latency: ~120ms</span>
-              </div>
             </motion.div>
           </motion.div>
 
-          {/* Right 3D Visual Column */}
+          {/* Right Terminal Visual Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
-            className="lg:col-span-5 relative w-full h-[24rem] lg:h-[36rem] flex items-center justify-center bg-slate-950/40 rounded-3xl border border-slate-900/60 backdrop-blur-sm p-4 overflow-hidden"
+            className="lg:col-span-5 relative w-full h-[26rem] lg:h-[32rem] flex items-center justify-center rounded-3xl"
           >
-            <div className="absolute inset-0 bg-radial-gradient from-amber-500/[0.02] to-transparent blur-3xl pointer-events-none -z-10" />
-            <Hero3DNodeGraph />
+            <TerminalWindow />
           </motion.div>
 
         </div>

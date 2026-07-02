@@ -199,7 +199,7 @@ export default function Projects() {
                     className="w-full py-8 flex flex-col md:flex-row items-start md:items-center justify-between text-left gap-4 hover:bg-slate-950/20 px-4 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="text-xs font-mono text-slate-600">0{i + 1}</span>
+                      <span className="text-xs font-mono text-slate-600">{i < 9 ? "0" : ""}{i + 1}</span>
                       <h4 className="text-xl font-black uppercase text-white tracking-wide group-hover:text-amber-500 transition-colors">
                         {project.title}
                       </h4>
