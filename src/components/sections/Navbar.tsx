@@ -50,6 +50,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={cn(
                   "px-4 py-2 text-sm font-medium transition-all rounded-lg",
                   pathname === link.href 
@@ -97,9 +99,11 @@ export default function Navbar() {
           >
             <div className="flex flex-col space-y-4 p-8">
               {navLinks.map((link) => (
-                <Link
+                 <Link
                   key={link.name}
                   href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "text-2xl font-bold transition-colors",

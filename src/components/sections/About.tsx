@@ -30,8 +30,11 @@ export default function About() {
               <p>
                 Later, I transitioned to remote work with The Analytics Team as a Web Developer, further honing my skills in full-stack applications and data-driven dashboards.
               </p>
+              <p>
+                Driven by the potential of custom automation and AI workflows, I co-founded <a href="https://devizly.cloud" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline font-bold transition-all">Devizly</a>, an automation agency that builds low-latency voice streams, custom agent pipelines, and enterprise systems for global clients.
+              </p>
               <p className="p-6 rounded-2xl bg-foreground/5 border-l-4 border-primary text-foreground font-bold italic">
-                &quot;Today, I freelance full-time, specializing in not just web development but also high-impact AI automation. I help businesses worldwide save thousands of hours by automating repetitive tasks.&quot;
+                &quot;Today, I lead Devizly and consult on high-impact AI integrations, helping businesses worldwide save thousands of hours of manual operations.&quot;
               </p>
             </div>
 

@@ -2,14 +2,8 @@
 
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
-import { ArrowRight, MapPin, Sparkles, Terminal, Activity } from "lucide-react";
-import dynamic from "next/dynamic";
-
-// Dynamically import the 3D Node Graph to avoid SSR issues with canvas/webgl
-const Hero3DNodeGraph = dynamic(
-  () => import("./Hero3DNodeGraph"),
-  { ssr: false, loading: () => <div className="w-full h-full flex items-center justify-center text-slate-600 font-mono text-[10px] uppercase tracking-widest">System Engine Initializing...</div> }
-);
+import { ArrowRight, MapPin, Sparkles, Terminal, Activity, Bot, ExternalLink } from "lucide-react";
+import Hero3DNodeGraph from "./Hero3DNodeGraph";
 
 export default function Hero() {
   const containerVariants = {
@@ -89,6 +83,18 @@ export default function Hero() {
               >
                 <span>Explore Case Studies</span>
                 <ArrowRight size={14} className="ml-1" />
+              </motion.a>
+              <motion.a
+                href="https://devizly.cloud"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ borderColor: "rgba(0, 245, 212, 0.4)", backgroundColor: "rgba(0, 245, 212, 0.03)" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3.5 rounded-xl border border-teal-500/20 bg-teal-500/5 text-teal-400 text-xs uppercase tracking-widest font-bold w-full sm:w-auto transition-all text-center flex items-center justify-center gap-2 hover:text-white"
+              >
+                <Bot size={14} className="text-teal-400" />
+                <span>Devizly Agency</span>
+                <ExternalLink size={12} className="opacity-60" />
               </motion.a>
               <motion.a
                 href="/contact"

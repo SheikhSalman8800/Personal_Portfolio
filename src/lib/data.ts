@@ -141,6 +141,7 @@ export const navLinks = [
   { name: "Projects", href: "/#projects" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
+  { name: "Devizly Agency", href: "https://devizly.cloud" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -179,9 +180,9 @@ export const projects = [
     description: "High-performance queuing and database optimizations to support peak ticket launch events.",
     longDescription: "Re-architected and scaled the backend infrastructure of Tickify, Bangladesh's leading online ticketing platform, enabling it to process thousands of transactions per minute without locking the database.",
     problem: "During major concert and sports ticketing launches, massive concurrent spikes (10k+ concurrent users) caused database locking, API timeouts, and double-booking errors.",
-    system: "Designed and implemented a Redis-based token bucket queuing system to regulate incoming checkout requests. Optimized Postgres query indices, separated database reads and writes with replica nodes, and built a custom React ticket checkout flow that holds reservations in memory for 10 minutes.",
+    system: "Designed and implemented a Redis-based token bucket queuing system inside a Django/Python backend to regulate incoming checkout requests. Optimized PostgreSQL query indices, separated database reads and writes with replica nodes, and built an optimized ticket reservation and locking pipeline.",
     impact: "Successfully handled multiple 10,000+ concurrent traffic spikes. Checkout latency decreased by 60% and transaction failure rates dropped to 0%, resulting in over $50k in ticket sales processed smoothly in minutes.",
-    tags: ["Next.js", "Node.js", "Redis", "PostgreSQL", "Tailwind CSS"],
+    tags: ["Django", "Python", "Redis", "PostgreSQL"],
     category: "Full-Stack Scale",
     github: "https://github.com/sheikhsalman/tickify-scale",
     link: "https://tickify.live",
