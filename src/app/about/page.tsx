@@ -3,7 +3,7 @@
 import PageTransition from "@/components/PageTransition";
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
-import Skills from "@/components/sections/Skills";
+import OperationsPipeline from "@/components/sections/OperationsPipeline";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import { motion } from "framer-motion";
@@ -33,7 +33,7 @@ export default function AboutPage() {
           </div>
           <About />
           <Experience />
-          <Skills />
+          <OperationsPipeline />
         </div>
       </PageTransition>
       <Footer />

@@ -7,7 +7,6 @@ import { navLinks, personalInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import Logo from "@/components/ui/Logo";
 
 export default function Navbar() {
@@ -39,7 +38,7 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               className="text-xl font-black tracking-tighter"
             >
-              SALMAN<span className="text-primary">.</span>
+              SHEIKH SALMAN<span className="text-primary">.</span>
             </motion.div>
           </div>
         </Link>
@@ -64,7 +63,6 @@ export default function Navbar() {
           </div>
           
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
             <Link href="/contact">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -79,7 +77,6 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="flex items-center space-x-4 md:hidden">
-          <ThemeToggle />
           <button
             className="text-foreground p-2 rounded-xl bg-foreground/5 border border-foreground/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

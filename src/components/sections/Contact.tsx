@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
-import { Send, Mail, MapPin, Github, Linkedin, MessageSquare } from "lucide-react";
+import { Send, Mail, MapPin, Github, Linkedin, MessageSquare, Phone } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -15,50 +15,57 @@ export default function Contact() {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      alert("Message sent! I'll get back to you soon.");
+      alert("System Ping Successful! I will get back to you shortly.");
       setFormState({ name: "", email: "", message: "" });
     }, 1500);
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-28 relative overflow-hidden bg-dot-pattern border-t border-slate-900">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-amber-500/5 rounded-full blur-[160px] -z-10" />
+
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h2 className="text-4xl md:text-6xl font-black mb-8">
-              Let&apos;s <span className="gradient-text">Talk</span>
+            <span className="text-xs font-mono font-bold text-amber-500/80 uppercase tracking-widest mb-3 block">
+              PORT_INITIALIZE
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-8">
+              Establish <span className="gradient-text tracking-tighter">Connection</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-12 max-w-md leading-relaxed">
-              Have a project in mind? Looking to hire? Or just want to say hi? I&apos;m always open to new opportunities and discussions.
+            <p className="text-slate-400 text-lg mb-12 max-w-md leading-relaxed font-medium">
+              Want to scale your business with custom voice AI, automate complex backend steps, or optimize your web systems? Ping my console.
             </p>
 
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 mb-12">
               <ContactInfoItem 
                 icon={Mail} 
-                title="Email" 
+                title="Node Email" 
                 value={personalInfo.email} 
                 href={`mailto:${personalInfo.email}`}
               />
               <ContactInfoItem 
                 icon={MapPin} 
-                title="Location" 
+                title="Physical Coordinates" 
                 value={personalInfo.location} 
               />
               <ContactInfoItem 
-                icon={MessageSquare} 
-                title="WhatsApp" 
-                value="+880 1XXXXXXXXX" 
-                href="#"
+                icon={Phone} 
+                title="Direct Line" 
+                value={personalInfo.phone} 
+                href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
               />
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-4">
               <SocialLink icon={Github} href={personalInfo.github} label="GitHub" />
               <SocialLink icon={Linkedin} href={personalInfo.linkedin} label="LinkedIn" />
             </div>
@@ -66,62 +73,61 @@ export default function Contact() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-8 md:p-12 rounded-3xl glass-card border-foreground/5 shadow-2xl shadow-primary/5 relative overflow-hidden"
+            className="p-8 md:p-12 rounded-3xl bg-slate-950 border border-slate-900 shadow-2xl relative overflow-hidden"
           >
-            {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16" />
+            {/* Ambient indicator */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
             
             <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-black uppercase tracking-widest text-foreground/70 ml-1">Name</label>
+                  <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Identity / Name</label>
                   <input
                     required
                     type="text"
-                    placeholder="Your Name"
-                    className="w-full px-6 py-4 rounded-xl bg-foreground/5 border border-foreground/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground/50 font-medium"
+                    placeholder="e.g. John Doe"
+                    className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-black uppercase tracking-widest text-foreground/70 ml-1">Email</label>
+                  <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Return Port / Email</label>
                   <input
                     required
                     type="email"
-                    placeholder="your@email.com"
-                    className="w-full px-6 py-4 rounded-xl bg-foreground/5 border border-foreground/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground/50 font-medium"
+                    placeholder="e.g. name@domain.com"
+                    className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-black uppercase tracking-widest text-foreground/70 ml-1">Message</label>
+                <label className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 ml-1">Payload / Message</label>
                 <textarea
                   required
                   rows={5}
-                  placeholder="Tell me about your project..."
-                  className="w-full px-6 py-4 rounded-xl bg-foreground/5 border border-foreground/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground/50 font-medium resize-none"
+                  placeholder="Detail your system specifications or project scope..."
+                  className="w-full px-5 py-4 rounded-xl bg-slate-900/50 border border-slate-900 focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500 outline-none transition-all placeholder:text-slate-600 text-sm font-semibold text-white resize-none"
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 />
               </div>
               <motion.button
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={isSubmitting}
-                className="w-full cyber-button flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl shadow-primary/20"
+                className="w-full cyber-button flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl shadow-amber-500/10 text-black uppercase tracking-wider text-xs font-bold py-4"
               >
                 {isSubmitting ? (
-                  <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="h-4 w-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
                 ) : (
                   <>
-                    <span className="text-lg font-black uppercase tracking-widest">Send Message</span>
-                    <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <span>Broadcast Message</span>
+                    <Send size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </>
                 )}
               </motion.button>
@@ -135,13 +141,13 @@ export default function Contact() {
 
 function ContactInfoItem({ icon: Icon, title, value, href }: { icon: any; title: string; value: string; href?: string }) {
   const content = (
-    <div className="flex items-start gap-6 group">
-      <div className="p-4 rounded-2xl bg-foreground/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/5">
-        <Icon size={24} />
+    <div className="flex items-start gap-5 group">
+      <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-900 text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 shadow-md">
+        <Icon size={20} />
       </div>
       <div>
-        <h4 className="text-sm font-black uppercase tracking-widest text-foreground/50 mb-1">{title}</h4>
-        <p className="text-xl font-bold group-hover:text-primary transition-colors">{value}</p>
+        <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-1">{title}</h4>
+        <p className="text-lg font-bold text-white group-hover:text-amber-500 transition-colors">{value}</p>
       </div>
     </div>
   );
@@ -161,12 +167,12 @@ function SocialLink({ icon: Icon, href, label }: { icon: any; href: string; labe
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ y: -5 }}
-      className="p-4 rounded-2xl bg-foreground/5 text-foreground hover:bg-foreground hover:text-background transition-all duration-300 flex items-center gap-3 border border-foreground/5"
+      whileHover={{ y: -3 }}
+      className="p-3 px-5 rounded-2xl bg-slate-950 text-slate-300 hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2 border border-slate-900"
       aria-label={label}
     >
-      <Icon size={22} />
-      <span className="font-black text-sm uppercase tracking-widest pr-2">{label}</span>
+      <Icon size={16} />
+      <span className="font-bold text-xs uppercase tracking-wider pr-1">{label}</span>
     </motion.a>
   );
 }

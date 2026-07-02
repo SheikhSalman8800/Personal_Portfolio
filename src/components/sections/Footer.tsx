@@ -27,7 +27,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 mb-6 group cursor-pointer">
                 <Logo />
                 <div className="text-2xl font-black tracking-tighter">
-                  SALMAN<span className="text-primary">.</span>
+                  SHEIKH SALMAN<span className="text-primary">.</span>
                 </div>
               </div>
             </Link>

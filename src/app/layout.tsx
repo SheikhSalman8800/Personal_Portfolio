@@ -10,16 +10,29 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: `${personalInfo.name} | ${personalInfo.title}`,
-  description: personalInfo.tagline,
-  keywords: ["Full-Stack Developer", "AI Automation", "N8N", "Make.com", "Next.js", "React", "Dhaka", "Bangladesh"],
+  title: "Sheikh Salman | Full-Stack Developer & AI Automation Engineer",
+  description: "Sheikh Salman is a professional Full-Stack Developer and AI Automation Engineer building intelligent LLM pipelines, n8n orchestrations, low-latency custom Voice AI (Vapi), and high-performance React/Next.js systems.",
+  keywords: ["Sheikh Salman", "Full-Stack Developer", "AI Automation Engineer", "N8N Developer", "Make.com Expert", "Next.js Portfolio", "Voice AI Engineer", "Bangladesh"],
+  manifest: "/site.webmanifest",
+  robots: "index, follow",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/favicon.ico",
+    apple: "/icon.svg",
+  },
+  alternates: {
+    canonical: "https://sheikhsalman.dev",
+  },
   openGraph: {
-    title: `${personalInfo.name} | Portfolio`,
-    description: personalInfo.tagline,
-    url: "https://sheikhsalman.me", // Placeholder
-    siteName: personalInfo.name,
+    title: "Sheikh Salman | Full-Stack Developer & AI Automation Engineer",
+    description: "Sheikh Salman builds responsive web platforms and autonomous AI pipelines that eliminate operational friction.",
+    url: "https://sheikhsalman.dev",
+    siteName: "Sheikh Salman Portfolio",
     locale: "en_US",
     type: "website",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_SITE_VERIFICATION || "",
   },
 };
 
@@ -34,7 +47,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           {children}

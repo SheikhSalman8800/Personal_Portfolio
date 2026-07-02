@@ -5,104 +5,94 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --foreground: 216 40% 5%;
+    --card: 0 0% 98%;
+    --card-foreground: 216 40% 5%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
+    --popover-foreground: 216 40% 5%;
+    --primary: 38 92% 50%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 189 94% 43%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 210 10% 90%;
+    --muted-foreground: 216 10% 40%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --border: 216 20% 85%;
+    --input: 216 20% 85%;
+    --ring: 38 92% 50%;
     --radius: 0.75rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
+    --background: 216 40% 5%;
+    --foreground: 210 40% 98%;
+    --card: 220 30% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 216 40% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 38 92% 50%; /* Flow Amber */
+    --primary-foreground: 216 40% 5%;
+    --secondary: 189 94% 43%; /* Cyber Mint */
+    --secondary-foreground: 216 40% 5%;
+    --muted: 220 20% 14%;
     --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
+    --accent: 142 72% 29%; /* Logic Green */
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 38 92% 50%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300;
     background-image: 
-      radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.05), transparent 50%),
-      radial-gradient(circle at 100% 0%, hsl(var(--primary) / 0.03), transparent 30%);
+      radial-gradient(circle at 10% 20%, hsl(var(--primary) / 0.03), transparent 40%),
+      radial-gradient(circle at 90% 80%, hsl(var(--secondary) / 0.03), transparent 40%);
     background-attachment: fixed;
   }
 }
 
 /* Background patterns */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, hsl(var(--foreground) / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, hsl(var(--foreground) / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(hsl(var(--foreground) / 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 .glass-card {
-  @apply bg-background/30 backdrop-blur-md border border-foreground/10 rounded-2xl;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  @apply bg-background/40 backdrop-blur-md border border-foreground/5 rounded-2xl;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.02);
 }
 
 .dark .glass-card {
-  @apply bg-white/5 border-white/10;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  @apply bg-white/[0.02] border-white/[0.05];
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-amber-400 to-secondary;
 }
 
 .cyber-button {
-  @apply relative overflow-hidden px-8 py-4 rounded-xl font-bold transition-all duration-300;
-  background: linear-gradient(45deg, hsl(var(--primary)), #a855f7);
-  color: white;
+  @apply relative overflow-hidden px-8 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2;
+  background: linear-gradient(135deg, hsl(var(--primary)), #f59e0b);
+  color: black;
 }
 
 .cyber-button::before {
@@ -115,7 +105,7 @@
 }
 
 .cyber-button:hover {
-  @apply scale-105 shadow-[0_0_20px_rgba(168,85,247,0.5)];
+  @apply scale-[1.02] shadow-[0_0_20px_rgba(245,158,11,0.3)];
 }
 
 /* Custom scrollbar */
@@ -135,13 +125,19 @@
   @apply bg-muted-foreground/40;
 }
 
-/* Animations */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+/* Branching Timeline Connectors */
+.timeline-branch-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Modern Keyboard Focus Ring Override */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 4px;
 }

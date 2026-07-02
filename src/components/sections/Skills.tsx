@@ -2,134 +2,227 @@
 
 import { motion } from "framer-motion";
 import { skills } from "@/lib/data";
-import { cn } from "@/lib/utils";
-import { Terminal, Cpu, Globe, Database, Layers, Workflow, Bot, Zap, Code2 } from "lucide-react";
+import { Terminal, Activity, ArrowRight, Layers, Volume2, Workflow, Bot, Code2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Skills() {
-  const allSkills = [...skills.web, ...skills.automation];
+  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-grid-pattern">
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+    <section id="skills" className="py-28 relative overflow-hidden bg-grid-pattern border-t border-slate-900">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-emerald-500/5 rounded-full blur-[160px] -z-10" />
 
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
+        
+        {/* Header */}
+        <div className="text-center mb-24">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4"
           >
-            <Terminal size={14} className="text-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Technical Arsenal</span>
+            <Terminal size={12} className="text-emerald-500" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500">Infrastructure Stack</span>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-7xl font-black mb-6 tracking-tighter"
+            className="text-4xl md:text-6xl font-black uppercase tracking-tight"
           >
-            My <span className="gradient-text">Tech Stack</span>
+            Technical <span className="gradient-text tracking-tighter">Architecture</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-muted-foreground text-lg max-w-2xl mx-auto font-medium"
+            className="text-slate-400 text-lg max-w-2xl mx-auto mt-4 font-medium"
           >
-            I leverage a modern ecosystem of tools to build scalable, AI-driven applications and automated workflows.
+            A grouped breakdown of my technical ecosystem mapped to how data flows from trigger to execution.
           </motion.p>
         </div>
 
-        {/* Skill Ribbon / Marquee (Infinite Scroll) */}
-        <div className="relative mb-20 flex overflow-hidden py-10 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:after:from-background after:to-transparent">
+        {/* Pipeline Tech Stack Columns */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch relative"
+        >
+          {/* Group 1: Ingress Layer */}
           <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="flex flex-none gap-8 pr-8"
+            variants={itemVariants}
+            onMouseEnter={() => setHoveredGroup("ingress")}
+            onMouseLeave={() => setHoveredGroup(null)}
+            className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+              hoveredGroup === "ingress"
+                ? "bg-slate-900 border-emerald-500/40 shadow-lg shadow-emerald-500/[0.02]"
+                : "bg-slate-950/40 border-slate-900"
+            }`}
           >
-            {[...allSkills, ...allSkills].map((skill, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 px-6 py-3 rounded-2xl glass-card border-foreground/5 whitespace-nowrap group hover:border-primary/50 transition-all duration-300"
-              >
-                <div style={{ color: skill.color }} className="group-hover:scale-110 transition-transform">
-                  <skill.icon size={20} />
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-2xl bg-emerald-500/10 text-emerald-400">
+                  <Volume2 size={20} />
                 </div>
-                <span className="text-sm font-bold tracking-tight">{skill.name}</span>
+                <div>
+                  <span className="text-[9px] font-mono text-slate-500 font-bold block">01 / TRIGGER</span>
+                  <h3 className="text-sm font-black uppercase tracking-wider text-white">Ingress & Voice</h3>
+                </div>
               </div>
-            ))}
+              <p className="text-xs text-slate-400 leading-relaxed mb-8 font-medium">
+                Audio streams and API endpoints designed to capture user actions and voice inputs under 200ms latency.
+              </p>
+              <div className="space-y-3">
+                {skills.ingress.map((tech) => (
+                  <SkillItem key={tech.name} name={tech.name} Icon={tech.icon} color={tech.color} />
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex justify-end mt-8 text-slate-700">
+              <ArrowRight size={18} className="animate-pulse" />
+            </div>
           </motion.div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          {/* Detailed Skill Categories */}
-          <div className="space-y-12">
-            <CategoryHeader title="Web Engineering" icon={Globe} color="text-blue-500" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {skills.web.map((skill, i) => (
-                <SkillCard key={skill.name} skill={skill} index={i} />
-              ))}
+          {/* Group 2: Orchestration Layer */}
+          <motion.div
+            variants={itemVariants}
+            onMouseEnter={() => setHoveredGroup("orchestration")}
+            onMouseLeave={() => setHoveredGroup(null)}
+            className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+              hoveredGroup === "orchestration"
+                ? "bg-slate-900 border-amber-500/40 shadow-lg shadow-amber-500/[0.02]"
+                : "bg-slate-950/40 border-slate-900"
+            }`}
+          >
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-2xl bg-amber-500/10 text-amber-400">
+                  <Workflow size={20} />
+                </div>
+                <div>
+                  <span className="text-[9px] font-mono text-slate-500 font-bold block">02 / ROUTING</span>
+                  <h3 className="text-sm font-black uppercase tracking-wider text-white">Orchestration</h3>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed mb-8 font-medium">
+                Workflow automation engines designed with built-in error retry structures and self-healing webhooks.
+              </p>
+              <div className="space-y-3">
+                {skills.orchestration.map((tech) => (
+                  <SkillItem key={tech.name} name={tech.name} Icon={tech.icon} color={tech.color} />
+                ))}
+              </div>
             </div>
-          </div>
+            <div className="hidden lg:flex justify-end mt-8 text-slate-700">
+              <ArrowRight size={18} className="animate-pulse" />
+            </div>
+          </motion.div>
 
-          <div className="space-y-12">
-            <CategoryHeader title="Automation & Systems" icon={Cpu} color="text-purple-500" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {skills.automation.map((skill, i) => (
-                <SkillCard key={skill.name} skill={skill} index={i} />
-              ))}
+          {/* Group 3: Brain Layer */}
+          <motion.div
+            variants={itemVariants}
+            onMouseEnter={() => setHoveredGroup("cognition")}
+            onMouseLeave={() => setHoveredGroup(null)}
+            className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+              hoveredGroup === "cognition"
+                ? "bg-slate-900 border-secondary/40 shadow-lg shadow-secondary/[0.02]"
+                : "bg-slate-950/40 border-slate-900"
+            }`}
+          >
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-2xl bg-cyan-500/10 text-cyan-400">
+                  <Bot size={20} />
+                </div>
+                <div>
+                  <span className="text-[9px] font-mono text-slate-500 font-bold block">03 / COGNITION</span>
+                  <h3 className="text-sm font-black uppercase tracking-wider text-white">Reasoning</h3>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed mb-8 font-medium">
+                Integrating large language models with vector databases for semantic reasoning and context-aware responses.
+              </p>
+              <div className="space-y-3">
+                {skills.cognition.map((tech) => (
+                  <SkillItem key={tech.name} name={tech.name} Icon={tech.icon} color={tech.color} />
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
+            <div className="hidden lg:flex justify-end mt-8 text-slate-700">
+              <ArrowRight size={18} className="animate-pulse" />
+            </div>
+          </motion.div>
+
+          {/* Group 4: Core Applications Layer */}
+          <motion.div
+            variants={itemVariants}
+            onMouseEnter={() => setHoveredGroup("core")}
+            onMouseLeave={() => setHoveredGroup(null)}
+            className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+              hoveredGroup === "core"
+                ? "bg-slate-900 border-slate-700 shadow-lg shadow-white/[0.01]"
+                : "bg-slate-950/40 border-slate-900"
+            }`}
+          >
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-2xl bg-white/5 text-white">
+                  <Code2 size={20} />
+                </div>
+                <div>
+                  <span className="text-[9px] font-mono text-slate-500 font-bold block">04 / DELIVERY</span>
+                  <h3 className="text-sm font-black uppercase tracking-wider text-white">Full-Stack Core</h3>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed mb-8 font-medium">
+                High-performance frameworks and database layers built to render pages instantly and store data securely.
+              </p>
+              <div className="space-y-3">
+                {skills.core.map((tech) => (
+                  <SkillItem key={tech.name} name={tech.name} Icon={tech.icon} color={tech.color} />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function CategoryHeader({ title, icon: Icon, color }: { title: string; icon: any; color: string }) {
+function SkillItem({ name, Icon, color }: { name: string; Icon: any; color: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      className="flex items-center gap-4"
-    >
-      <div className={cn("p-3 rounded-2xl bg-foreground/5 shadow-inner", color)}>
-        <Icon size={24} />
+    <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-900 hover:border-slate-800 transition-colors">
+      <div className="flex items-center gap-3">
+        <div style={{ color }} className="opacity-80">
+          <Icon size={14} />
+        </div>
+        <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wide">{name}</span>
       </div>
-      <h3 className="text-2xl font-black tracking-tight">{title}</h3>
-      <div className="flex-grow h-px bg-gradient-to-r from-foreground/10 to-transparent ml-4" />
-    </motion.div>
-  );
-}
-
-function SkillCard({ skill, index }: { skill: any; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.05 }}
-      whileHover={{ scale: 1.02, y: -2 }}
-      className="group relative p-5 rounded-2xl glass-card border-foreground/5 flex flex-col items-start gap-4 hover:bg-foreground/5 transition-all duration-300"
-    >
-      <div 
-        className="p-2 rounded-lg bg-foreground/5 transition-colors duration-300"
-        style={{ color: skill.color }}
-      >
-        <skill.icon size={20} />
-      </div>
-      <span className="text-xs font-black uppercase tracking-widest text-foreground/70 group-hover:text-foreground">
-        {skill.name}
-      </span>
-      
-      {/* Decorative Corner */}
-      <div className="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="w-2 h-2 border-t-2 border-r-2 border-primary/50" />
-      </div>
-    </motion.div>
+      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
+    </div>
   );
 }

@@ -5,7 +5,7 @@ import { stats } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-grid-pattern">
+    <section id="about" className="py-28 relative overflow-hidden bg-grid-pattern border-t border-slate-900">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-20">
           <motion.div
