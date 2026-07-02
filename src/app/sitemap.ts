@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sheikhsalman.dev";
+  const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "https://sheikhsalman.dev";
+  const baseUrl = rawUrl.endsWith("/") ? rawUrl.slice(0, -1) : rawUrl;
   return [
     {
       url: baseUrl,
